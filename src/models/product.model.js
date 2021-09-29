@@ -25,45 +25,62 @@ module.exports = function (app) {
     description : {
       type : String
     },
-    scope_of_supply : {
-      type : String
-    },
-    inspection_test_certificate  : {
-      type : String
-    },
+    // scope_of_supply : {
+    //   type : String
+    // },
+    // inspection_test_certificate  : {
+    //   type : String
+    // },
     model : [{
       name : {
         type :String
+      },
+      sequence_number : {
+        type : Number
       }
     }],
-    tabular_data : [
-      {
-        name : {
-          type : String
-        },
-        row_heading : [{
-          name : {
-            type : String
-          },
-          unit : {
-            type : String , 
-            default : "NA"
-          }
-        }],
-        data_in_table : [{
-          name_of_model : {
-            type : String
-          },
-          row_heading_name : {
-            type : String
-          },
-          data_in_cell : {
-            type :String
-          }
-        }]
-        
+
+    specification : [{
+      name : {
+        type : String
+      },
+      unit : {
+        type :String,
+        default : "NA"
+      },
+      same_for_all_model_flag : {
+        type : Boolean,
+        default : true
       }
-    ],
+    }],
+    // tabular_data : [
+    //   {
+    //     name : {
+    //       type : String
+    //     },
+    //     row_heading : [{
+    //       name : {
+    //         type : String
+    //       },
+    //       unit : {
+    //         type : String , 
+    //         default : "NA"
+    //       }
+    //     }],
+    //     data_in_table : [{
+    //       name_of_model : {
+    //         type : String
+    //       },
+    //       row_heading_name : {
+    //         type : String
+    //       },
+    //       data_in_cell : {
+    //         type :String
+    //       }
+    //     }]
+        
+    //   }
+    // ],
     cover : [urltype], // donate all pic
 
 
