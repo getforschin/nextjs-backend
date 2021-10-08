@@ -7,14 +7,11 @@ module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   let urltype = {
-    url: {
-      type: String
+    data: {
+      type: Buffer
     },
-    name: {
-      type: String
-    },
-    size: {
-      type: Number
+    contentType : {
+      type : String
     }
   };
   const schema = new Schema({
@@ -53,36 +50,8 @@ module.exports = function (app) {
         default : true
       }
     }],
-    // tabular_data : [
-    //   {
-    //     name : {
-    //       type : String
-    //     },
-    //     row_heading : [{
-    //       name : {
-    //         type : String
-    //       },
-    //       unit : {
-    //         type : String , 
-    //         default : "NA"
-    //       }
-    //     }],
-    //     data_in_table : [{
-    //       name_of_model : {
-    //         type : String
-    //       },
-    //       row_heading_name : {
-    //         type : String
-    //       },
-    //       data_in_cell : {
-    //         type :String
-    //       }
-    //     }]
-        
-    //   }
-    // ],
-    cover : [urltype], // donate all pic
 
+    cover : [urltype], 
 
 
 
