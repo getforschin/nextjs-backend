@@ -1,11 +1,15 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const uploadFile = require("../../hooks/upload-file");
+const deleteFileOnError = require("../../hooks/delete-file-on-error");
+const deleteFile = require("../../hooks/delete-file");
+
 
 module.exports = {
   before: {
     all: [ authenticate('jwt') ],
     find: [],
     get: [],
-    create: [],
+    create: [uploadFile()],
     update: [],
     patch: [],
     remove: []
@@ -18,14 +22,14 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [deleteFile()]
   },
 
   error: {
     all: [],
     find: [],
     get: [],
-    create: [],
+    create: [deleteFileOnError()],
     update: [],
     patch: [],
     remove: []

@@ -3,14 +3,12 @@ module.exports = function (options = {}) {
   // eslint-disable-line no-unused-vars
   return async (context) => {
     const { params , data } = context;
+    const {file} = params
+  
+    data.url  = "/uploads/" + file.filename;
+    data.size = file.size;
+    data.file_name = file.filename
 
-    data.images_of_name = params.files.map((item) => {
-      return {
-        name: item.filename,
-        size: item.size,
-        url: "/uploads/" + item.filename,
-      };
-    });
     return context;
   };
 };
