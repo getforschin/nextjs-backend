@@ -13,8 +13,6 @@ const upload = multer({
   limits: {
     fieldSize: 1e8, // Max field value size in bytes, here it's 100MB
     fileSize: 1e7, //  The max file size in bytes, here it's 10MB
-    // files: the number of files
-    // READ MORE https://www.npmjs.com/package/multer#limits
   },
 });
 
