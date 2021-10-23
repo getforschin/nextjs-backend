@@ -4,6 +4,7 @@ module.exports = function (options = {}) {
   return async (context) => {
     const { params , data } = context;
     const {file} = params
+    //console.log(file)
   
     data.url  = "/uploads/" + file.filename;
     data.size = file.size;

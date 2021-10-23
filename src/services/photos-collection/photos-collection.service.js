@@ -30,7 +30,9 @@ module.exports = function (app) {
     upload.single("attachment"),
     function (req, res, next) {
       const { method } = req;
+      //console.log(req)
       if (method === "POST" || method === "PATCH") {
+       
         req.feathers.file = req.file; // transfer the received files to feathers
       }
       next();

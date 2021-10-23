@@ -6,52 +6,53 @@ module.exports = function (app) {
   const modelName = 'product';
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
-  let urltype = {
-    data: {
-      type: Buffer
-    },
-    contentType : {
-      type : String
-    }
-  };
+
   const schema = new Schema({
     name: {
       type: String,
       required: true
     },
-    description : {
-      type : String
+    description: {
+      type: String
     },
-    // scope_of_supply : {
-    //   type : String
-    // },
-    // inspection_test_certificate  : {
-    //   type : String
-    // },
-    model : [{
-      name : {
-        type :String
-      },
-      sequence_number : {
-        type : Number
-      }
-    }],
 
-    specification : [{
-      name : {
-        type : String
-      },
-      unit : {
-        type :String,
-        default : "NA"
-      },
-      same_for_all_model_flag : {
-        type : Boolean,
-        default : true
+    tabular_data: [
+      {
+        model: {
+          type: String,
+          required: true
+        },
+        specification: {
+          type: String,
+          required: true
+        },
+        unit: {
+          type: String,
+          required: true
+        },
+        value: {
+          type: String,
+          required: true
+        }
       }
-    }],
+    ],
+    common_detail: [
+      {
+        heading: {
+          type: String,
+          required: true
+        },
+        data: {
+          type: String,
+          required: true
+        }
+      }
 
-    cover : [urltype], 
+    ],
+   
+
+
+    cover: [{ type: Schema.Types.ObjectId, ref: 'photosCollection' }],
 
 
 
