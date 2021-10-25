@@ -3,6 +3,7 @@ const product = require('./product/product.service.js');
 const stringConfigurationData = require('./string_configuration_data/string_configuration_data.service.js');
 const imageConfigurationData = require('./image-configuration-data/image-configuration-data.service.js');
 const photosCollection = require('./photos-collection/photos-collection.service.js');
+const customerDetail = require('./customer-detail/customer-detail.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function (app) {
   app.configure(users);
@@ -10,4 +11,5 @@ module.exports = function (app) {
   app.configure(stringConfigurationData);
   app.configure(imageConfigurationData);
   app.configure(photosCollection);
+  app.configure(customerDetail);
 };
