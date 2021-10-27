@@ -27,7 +27,9 @@ module.exports = function (app) {
 
       research_development: [
         {
-          type: String,
+          text: {
+            type: String,
+          }
         },
       ],
 
