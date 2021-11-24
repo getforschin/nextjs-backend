@@ -1,4 +1,5 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const  populateImageHook = require('../../hooks/populate-image-hook')
 
 module.exports = {
   before: {
@@ -13,7 +14,7 @@ module.exports = {
 
   after: {
     all: [],
-    find: [],
+    find: [populateImageHook()],
     get: [],
     create: [],
     update: [],

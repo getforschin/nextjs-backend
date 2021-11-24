@@ -6,13 +6,13 @@ const deleteFile = require("../../hooks/delete-file");
 
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [ ],
     find: [],
     get: [],
-    create: [uploadFile()],
-    update: [],
-    patch: [],
-    remove: []
+    create: [authenticate('jwt') , uploadFile()],
+    update: [authenticate('jwt')],
+    patch: [authenticate('jwt')],
+    remove: [authenticate('jwt')]
   },
 
   after: {
