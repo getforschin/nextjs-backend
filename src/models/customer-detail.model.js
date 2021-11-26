@@ -29,13 +29,13 @@ module.exports = function (app) {
         {
           text: {
             type: String,
-          }
+          },
         },
       ],
 
       client: [
         {
-          name: {
+          text: {
             type: String,
           },
           photo: {
@@ -45,17 +45,10 @@ module.exports = function (app) {
         },
       ],
 
-      quality_standard: [
-        {
-          name: {
-            type: String,
-          },
-          photo: {
-            type: Schema.Types.ObjectId,
-            ref: "photosCollection",
-          },
-        },
-      ],
+      quality_standard: {
+        name: [{ type: String }],
+        photos: [{ type: Schema.Types.ObjectId, ref: "photosCollection" }],
+      },
 
       phone_number: {
         type: String,
