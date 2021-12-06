@@ -1,6 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 const tableConversion  = require('../../hooks/table-conversion')
-
+const productCoverImage = require('../../hooks/product-cover-image-change')
 
 module.exports = {
   before: {
@@ -16,7 +16,7 @@ module.exports = {
   after: {
     all: [],
     find: [],
-    get: [tableConversion()],
+    get: [tableConversion() , productCoverImage()],
     create: [],
     update: [],
     patch: [],
