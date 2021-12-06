@@ -1,4 +1,6 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
+const tableConversion  = require('../../hooks/table-conversion')
+
 
 module.exports = {
   before: {
@@ -14,7 +16,7 @@ module.exports = {
   after: {
     all: [],
     find: [],
-    get: [],
+    get: [tableConversion()],
     create: [],
     update: [],
     patch: [],
