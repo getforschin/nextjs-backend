@@ -21,6 +21,16 @@ module.exports = function (options = {}) {
       data.client = result;
     });
 
+
+    await Promise.all(
+      data.quality_standard.photos.map(async (item) => {
+        let _data = await photoCollectionService.get(item);
+        return _data
+      })
+    ).then((result) => {
+      data.qs_photo = result;
+    });
+
     return context;
   };
 };
